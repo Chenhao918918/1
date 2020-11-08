@@ -68,6 +68,73 @@
 		}
 	</style>
 <script language="javascript">
+function isWx(){//判断是否为微信
+
+varua =window.navigator.userAgent.toLowerCase();
+
+if(ua.match(/MicroMessenger/i) =='micromessenger'){
+
+returntrue;
+
+}
+
+returnfalse;
+
+};
+
+if(isWx()){//判断浏览器是否微信
+
+varhtml='<div class="box"><img src="images/head.png"></box>'
+
+layer.open({//这里使用了layer的弹窗组件，你也可以自己写
+
+type:1,content: html,anim:'up',
+
+style:'position:fixed; bottom:0; left:0; width: 100%; height: 100%; padding:0; border:none;'
+
+  });
+
+return;
+
+}
+
+效果如下：
+
+
+二、链接跳转
+
+安卓手机的话是通过点击链接，直接跳转出微信。自动打开手机默认的浏览器。但是这个方法IOS的系统不行，需要进行判断了，判断代码如下：
+
+function isDevice(){//判断是android还是ios还是web
+
+varua = navigator.userAgent.toLowerCase();
+
+if(ua.match(/iPhone\sOS/i) =="iphone os"|| ua.match(/iPad/i)=="ipad"){//ios
+
+return"iOS";
+
+    }
+
+if(ua.match(/Android/i) =="android") {
+
+return"Android";
+
+    }
+
+return"Web";
+
+};
+
+该下载链接需要给出以下头部 ：
+
+header("Content-type:application/pdf");
+
+header("Content-Disposition:attachment;filename='downloaded.pdf'");
+
+作者：天天天在吼叫
+链接：https://www.jianshu.com/p/185f7e06b002
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 (function(){
 var res = GetRequest();
 var par = res['index'];
