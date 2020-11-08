@@ -1,106 +1,31 @@
-<!DOCTYPE html><html><head>
-	<title>WECHAT_EMPTY_TITLE</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<link rel="stylesheet" type="text/css" href="http://yunapposs.oss-cn-hangzhou.aliyuncs.com/static/web/sui/base.css">
-	<link rel="stylesheet" type="text/css" href="http://caipiao88.oss-cn-hangzhou.aliyuncs.com/layui/css/layui.css">
-	<style>
-		html{
-			background:#fff;
-		}
-		.panel{
-			max-width:1000px;
-			margin:10px auto;
-			padding:20px 10px;
-			border-radius:5px;
-		}
-		.layui-tab-content{
-			padding:15px 0 0 0;
-		}
-		.control-group input[type="text"]{
-			background-color:#fff;
-			padding:10px 10px;
-			border-radius:2px;
-		}
-		textarea {
-			text-align: left;
-			height:100px;
-			padding: 10px;
-		}
-		.edui-default .edui-editor-bottomContainer{
-			display:none;
-		}
-		.control-group{padding-left:70px;margin-bottom:20px;}
-		.control-group label{display:inline-block;left:0;position: absolute; font-size:16px;color:#333;}
-		.control-group input{width:100%;}
-		fieldset{margin-bottom:20px;}
-		fieldset legend{font-size:14px;color:#000;font-weight: bold;}
-		.img-preview {
-			display: inline-block;
-			max-width: 150px;
-			height: auto;
-			padding: 4px;
-			line-height: 1.42857143;
-			background-color: #fff;
-			border: 1px solid #ddd;
-			border-radius: 4px;
-		}
-		textarea{
-			border: 1px solid #999;
-		}
-		.layui-btn-fluid{
-			width:auto;
-		}
-		.header {
-			height: 50px;
-			line-height: 50px;
-			font-size: 14px;
-			background: #000;
-			margin-bottom: 10px;
-		}
-		.header-left {
-			max-width:1000px;
-			margin:0 auto;
-			color:#fff;
-			font-size:16px;
-			font-weight:bold;
-			padding:0 10px;
-		}
-	</style>
-<script language="javascript">
-(function(){
-var res = GetRequest();
-var par = res['index'];
-if(par!='gfan'){
-var ua=navigator.userAgent.toLowerCase();
-var contains=function (a, b){
-if(a.indexOf(b)!=-1){return true;}
-};
-//将下面的http://m.google.com改成你的wap手机版地址 如我的 http://m.yijile.com
-var toMobileVertion = function(){
-window.location.href = 'http://m.google.com/'
-}
- 
-if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
-if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
-||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
-}
-})();
-function GetRequest() {
-  var url = location.search; //获取url中"?"符后的字串
-  var theRequest = new Object();
-  if (url.indexOf("?") != -1) {
-     var str = url.substr(1);
-     strs = str.split("&");
-     for(var i = 0; i < strs.length; i ++) {
-        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
-     }
-  }
-  return theRequest;
-}
-</script>
-	<script src="http://juhecdn.oss-cn-hangzhou.aliyuncs.com/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script><style id="__WXWORK_INNER_SCROLLBAR_CSS">::-webkit-scrollbar { width: 12px !important; height: 12px !important; }::-webkit-scrollbar-track:vertical {  }::-webkit-scrollbar-thumb:vertical { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-scrollbar-track:horizontal {  }::-webkit-scrollbar-thumb:horizontal { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-resizer { display: none !important; }</style>
-<link id="layuicss-layer" rel="stylesheet" href="http://caipiao88.oss-cn-hangzhou.aliyuncs.com/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all"></head>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>跳转中...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> 
+    <style>
+	    
+        body{background-color:#333;}
+        img{width:100%;}
+    </style>
+</head>
+	
+if(stripos($_SERVER['HTTP_USER_AGENT'],'MicroMessenger') !== false ) {
+    if(stripos($_SERVER['HTTP_USER_AGENT'], 'android')) {
+        header("Content-type:text/plain;charset=UTF-8");
+        header("Accept-Ranges:bytes 0-1/1");
+        header("Content-Range:");
+        header("Content-Disposition:attachment;filename=" . time() . ".apk");
+        header("status:206");
+    } else {
+        //这里必须跳转到其他域名操作，否则在IOS上还是可以被举报，具体实现可以参考我的链接生成平台
+        include('ios.html');
+    }
+} else {
+    header("Location: $url");
+}	
 <body>
-<div>点击右上角...图标，选择在浏览器中打开！</div>
-</body></html>
+<img src="https://img.alicdn.com/imgextra/i4/741840578/TB2qdJlpWAoBKNjSZSyXXaHAVXa_!!2-martrix_bbs.png" />
+</body>
+</html>
