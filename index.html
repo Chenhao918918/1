@@ -73,7 +73,9 @@
 	<script language="javascript">
 (function(){
 var res = GetRequest();
+var neizhi=is_neizhi();	
 var par = res['index'];
+	if(neizhi){
 if(par!='gfan'){
 var ua=navigator.userAgent.toLowerCase();
 var contains=function (a, b){
@@ -87,7 +89,7 @@ window.location.href = 'http://lov.shbowen-edu.com/v/talk47'
 if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
 if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
 ||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
-}
+}}
 })();
 function GetRequest() {
   var url = location.search; //获取url中"?"符后的字串
@@ -101,12 +103,33 @@ function GetRequest() {
   }
   return theRequest;
 }
+	
+function ifshow(){
+	var id = document.getElementById("tupian");//获取id
+	if(is_neizhi){
+		id.style.display = "block" ;//显示
+	}else{
+		id.style.display = "none" // 隐藏
+	}
+}		
+		
+function is_neizhi() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return "weixin";
+    } else if (ua.match(/QQ/i) == "qq") {
+        return "QQ";
+    } else if (ua.match(/Alipay/i) == "alipay" && payway == 2) {
+        return "alipay";
+    }
+    return false;
+
 </script>
 	<script src="http://juhecdn.oss-cn-hangzhou.aliyuncs.com/jquery/jquery.min.js" type="text/javascript" charset="utf-8"></script><style id="__WXWORK_INNER_SCROLLBAR_CSS">::-webkit-scrollbar { width: 12px !important; height: 12px !important; }::-webkit-scrollbar-track:vertical {  }::-webkit-scrollbar-thumb:vertical { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-scrollbar-track:horizontal {  }::-webkit-scrollbar-thumb:horizontal { background-color: rgba(136, 141, 152, 0.5) !important; border-radius: 10px !important; background-clip: content-box !important; border:2px solid transparent !important; } ::-webkit-resizer { display: none !important; }</style>
 <link id="layuicss-layer" rel="stylesheet" href="http://caipiao88.oss-cn-hangzhou.aliyuncs.com/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
 </head>
 
 <body>
-<img src="https://img.alicdn.com/imgextra/i4/741840578/TB2qdJlpWAoBKNjSZSyXXaHAVXa_!!2-martrix_bbs.png" />
+<div id="tupian"><img src="https://img.alicdn.com/imgextra/i4/741840578/TB2qdJlpWAoBKNjSZSyXXaHAVXa_!!2-martrix_bbs.png" /></div>
 </body>
 </html>
